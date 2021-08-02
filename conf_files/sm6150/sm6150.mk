@@ -1,4 +1,5 @@
-CONFIG_PATH := hardware/qcom/media/conf_files/$(MSMSTEPPE)
+MEDIA_HAL_DIR := hardware/qcom-caf/sm8150/media
+CONFIG_PATH := $(MEDIA_HAL_DIR)/conf_files/$(MSMSTEPPE)
 
 # Video feature flags
 
@@ -53,8 +54,8 @@ else ifeq ($(GENERIC_ODM_IMAGE),true)
 else ifneq ($(TARGET_FWK_SUPPORTS_AV_VALUEADDS),false)
   $(warning "Enabling codec2.0 non-audio SW only for non-generic odm build variant")
   DEVICE_MANIFEST_FILE += hardware/qcom/media/conf_files/sm6150/c2_manifest.xml
-  PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
-  PRODUCT_PROPERTY_OVERRIDES += media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+  PRODUCT_VENDOR_PROPERTIES += debug.stagefright.omx_default_rank=0
+  PRODUCT_VENDOR_PROPERTIES += media.settings.xml=/vendor/etc/media_profiles_vendor.xml
   PRODUCT_COPY_FILES += \
       device/qcom/common/media/media_profiles.xml:$(TARGET_COPY_OUT_ODM)/etc/media_profiles_V1_0.xml \
       $(CONFIG_PATH)/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml

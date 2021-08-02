@@ -1,4 +1,5 @@
-CONFIG_PATH := hardware/qcom/media/conf_files/$(TRINKET)
+MEDIA_HAL_DIR := hardware/qcom-caf/sm8150/media
+CONFIG_PATH := $(MEDIA_HAL_DIR)/conf_files/$(TRINKET)
 
 # Video feature flags
 
@@ -14,4 +15,4 @@ PRODUCT_COPY_FILES += \
     device/qcom/common/media/media_profiles.xml:$(TARGET_COPY_OUT_ODM)/etc/media_profiles_V1_0.xml
 
 # Vendor property overrides
-    PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
+    PRODUCT_VENDOR_PROPERTIES += debug.stagefright.omx_default_rank=0
